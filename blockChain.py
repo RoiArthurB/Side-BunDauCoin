@@ -33,4 +33,11 @@ class BDBlock:
 
 		# returns the combined hash value in Hexadecimals
 		return sha.hexdigest()
-		
+
+def make_genesis_block():
+	# Makes the first block in the BDC blockchain.
+	block = BDBlock(index=0,
+					timestamp=datetime.now(),
+					data="Genesis Block",
+					previous_hash="0")
+	return block

@@ -41,3 +41,13 @@ def make_genesis_block():
 					data="Genesis Block",
 					previous_hash="0")
 	return block
+
+# Creating all the later BunDauBlocks in the BunDauCoin blockchain
+def next_block(last_block, data=''):
+	idx = last_block.index + 1
+	# Create new BDBlock
+	block = BDBlock(index=idx,
+					timestamp=datetime.now(),
+					data='{}{}'.format(data, idx),
+					previous_hash=last_block.hash)
+	return block

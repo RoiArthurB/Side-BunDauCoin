@@ -51,3 +51,24 @@ def next_block(last_block, data=''):
 					data='{}{}'.format(data, idx),
 					previous_hash=last_block.hash)
 	return block
+
+#
+#	MAIN
+#
+if __name__ == '__main__':
+	# Create the first block
+	blockchain = [make_genesis_block()]
+	print('Init the BunDauCoin (BDC) with {}'.format(blockchain[0]))
+	print('Hash: {}\n'.format(blockchain[0].hash))
+
+	# Init previous ref
+	prev_block = blockchain[0]
+
+	# Generate some coins
+	# (POC)
+	for i in range(0, 20):
+		block = next_block(prev_block, data='I <3 Bun Dau Coin ! :P')
+		blockchain.append(block)
+		prev_block = block
+		print('{} added to blockchain'.format(block))
+		print('Hash: {}\n'.format(block.hash))

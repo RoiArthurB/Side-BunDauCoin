@@ -1,1 +1,7 @@
+# oldish custom
 *.py
+
+# Composer
+composer.phar
+/vendor/
+composer.lock

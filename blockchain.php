@@ -52,26 +52,27 @@ function next_block(BDBlock $last_block, string $data = ""){
 
 
 /*
-	MAIN
+	Tests
  */
+function testBlockChain() {
+	// Create the first block
+	$blockchain = array();
+	array_push($blockchain, make_genesis_block());
 
-// Create the first block
-$blockchain = array();
-array_push($blockchain, make_genesis_block());
+	echo "INIT the BunDauBlock (BDC) with {$blockchain[0]}\n";
+	echo "Hash: {$blockchain[0]->hash}\n\n";
 
-echo "INIT the BunDauBlock (BDC) with {$blockchain[0]}\n";
-echo "Hash: {$blockchain[0]->hash}\n\n";
+	// Init previous ref
+	$prev_block = $blockchain[0];
 
-// Init previous ref
-$prev_block = $blockchain[0];
+	// Generate some coins
+	// (POC)
+	for ($i=0; $i < 20; $i++) { 
+		$block = next_block($prev_block, "I <3 Bun Dau Coin ! {$i}");
+		array_push($blockchain, $block);
+		$prev_block = $block;
 
-// Generate some coins
-// (POC)
-for ($i=0; $i < 20; $i++) { 
-	$block = next_block($prev_block, "I <3 Bun Dau Coin ! {$i}");
-	array_push($blockchain, $block);
-	$prev_block = $block;
-
-	echo "{$block} added to blockchain.\n";
-	echo "Hash: {$block->hash}\n\n";
+		echo "{$block} added to blockchain.\n";
+		echo "Hash: {$block->hash}\n\n";
+	}
 }

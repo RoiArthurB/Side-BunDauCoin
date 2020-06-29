@@ -13,7 +13,7 @@
 class BDBlock {
 	public int $index;
 	public int $timestamp;
-	public string $data;
+	public Array $data;
 	public string $previous_hash;
 	public string $hash;
 
@@ -39,7 +39,7 @@ class BDBlock {
 
 function make_genesis_block() {
 	// Makes the first block in the BDC blockchain.
-	return new BDBlock(0, intval(date(time())), "Genesis Block", 0);
+	return new BDBlock(0, intval(date(time())), ["data" => "Genesis Block", "proof-of-work" => rand(1, 100)], 0);
 }
 
 // Creating all the later BunDauBlocks in the BunDauCoin blockchain

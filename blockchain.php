@@ -55,12 +55,6 @@ function next_block(BDBlock $last_block, string $data = ""){
 	Tests
  */
 function testBlockChain() {
-	// Create the first block
-	$blockchain = array();
-	array_push($blockchain, make_genesis_block());
-
-	echo "INIT the BunDauBlock (BDC) with {$blockchain[0]}\n";
-	echo "Hash: {$blockchain[0]->hash}\n\n";
 
 	// Init previous ref
 	$prev_block = $blockchain[0];
@@ -76,3 +70,11 @@ function testBlockChain() {
 		echo "Hash: {$block->hash}\n\n";
 	}
 }
+
+
+// Create the first block
+$blockchain = array();
+array_push($blockchain, make_genesis_block());
+
+echo "INIT the BunDauBlock (BDC) with {$blockchain[0]}\n";
+echo "Hash: {$blockchain[0]->hash}\n\n";

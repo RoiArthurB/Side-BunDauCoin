@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 
+from . import blockchain
 
 def create_app(test_config=None):
     # create and configure the app
@@ -25,9 +26,15 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+
     # a simple page that says hello
     @app.route('/hello')
     def hello():
         return 'Hello, BSC!'
+
+    @app.route('/fry')
+    def fry():
+        genesis = blockchain.genesisBlock()
+        return str(genesis.timestamp) + " | " + genesis.data
 
     return app

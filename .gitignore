@@ -1,10 +1,14 @@
-# oldish custom
-*.py
+venv/
 
-# Composer
-composer.phar
-/vendor/
-composer.lock
+*.pyc
+__pycache__/
 
-#BDC
-*.log
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/

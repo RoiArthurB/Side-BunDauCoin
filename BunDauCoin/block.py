@@ -13,5 +13,5 @@ class Block:
 
     def calculateHash(self):
         sha = hashlib.sha256()
-        sha.update(str(self.index) + str(self.previous_hash) + str(self.timestamp) + str(self.data))
+        sha.update(str(self.index).encode('utf-8') + str(self.previousHash).encode('utf-8') + str(self.timestamp).encode('utf-8') + str(self.data).encode('utf-8'))
         return sha.hexdigest()

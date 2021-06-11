@@ -11,6 +11,12 @@ export FLASK_APP=BunDauCoin
 export FLASK_ENV=development
 ```
 
+Create the database
+```bash
+$ flask init-db
+Initialized the database.
+```
+
 And run
 ```bash
 $ flask run

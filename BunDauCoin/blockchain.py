@@ -18,7 +18,7 @@ from . import block
 ## :returns:   { description_of_the_return_value }
 ## :rtype:     { return_type_description }
 ##
-def genesisBlock():
+def genesisBlock() -> block.Block:
     return block.Block(
         index=0, 
         previousHash="0", 
@@ -35,7 +35,7 @@ def genesisBlock():
 ## :returns:   { description_of_the_return_value }
 ## :rtype:     { return_type_description }
 ##
-def generateNextBlock(blockData):
+def generateNextBlock(blockData: block.Block) -> block.Block:
     previousBlock = self.getLatestBlock()
     return block.Block(
         index=previousBlock.index+1,
@@ -62,7 +62,7 @@ def generateNextBlock(blockData):
 ## :returns:   True if valid new block, False otherwise.
 ## :rtype:     bool
 ##
-def isValidNewBlock(newBlock, previousBlock):
+def isValidNewBlock(newBlock: block.Block, previousBlock: block.Block) -> bool:
     result = False
     if previousBlock.index + 1 == newBlock.index:
         if previousBlock.hash == newBlock.previousHash:
@@ -79,7 +79,7 @@ def isValidNewBlock(newBlock, previousBlock):
 ## :returns:   True if the specified block is valid block structure, False otherwise.
 ## :rtype:     bool
 ##
-def isValidBlockStructure(block):
+def isValidBlockStructure(block: block.Block):
     return (isinstance(block.index, int) 
         and isinstance(block.hash, str) 
         and isinstance(block.previousHash, str) 

@@ -28,4 +28,4 @@ $ flask run
 
 - Python 3.9.5
 - Flash 2.0.1
-- Mam Tom 😉
+- Mắm tôm 😉

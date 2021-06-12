@@ -47,7 +47,6 @@ def create_app(test_config=None):
     # (re)create database
     db.init_app(app)
 
-
     """
         +=============+
         |   Routing   |

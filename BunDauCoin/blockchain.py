@@ -5,6 +5,7 @@ import datetime
 import hashlib
 
 from . import block
+from . import db
 
 """
     +===========================+
@@ -13,10 +14,10 @@ from . import block
 """
 
 ##
-## { function_description }
+## Create Genesis block of the chain
 ##
-## :returns:   { description_of_the_return_value }
-## :rtype:     { return_type_description }
+## :returns:   Return the created genesis block
+## :rtype:     block.Block
 ##
 def genesisBlock() -> block.Block:
     return block.Block(
@@ -27,15 +28,15 @@ def genesisBlock() -> block.Block:
     )
 
 ##
-## { function_description }
+## Generate a new block for the chain
 ##
-## :param      blockData:  The block data
-## :type       blockData:  { type_description }
+## :param      blockData:  Data to feed the block
+## :type       blockData:  str
 ##
-## :returns:   { description_of_the_return_value }
-## :rtype:     { return_type_description }
+## :returns:   The new block for the chain
+## :rtype:     block.Block
 ##
-def generateNextBlock(blockData: block.Block) -> block.Block:
+def generateNextBlock(blockData: str) -> block.Block:
     previousBlock = self.getLatestBlock()
     return block.Block(
         index=previousBlock.index+1,
@@ -55,9 +56,9 @@ def generateNextBlock(blockData: block.Block) -> block.Block:
 ## Determines if valid new block.
 ##
 ## :param      newBlock:       The new block
-## :type       newBlock:       { type_description }
+## :type       newBlock:       block.Block
 ## :param      previousBlock:  The previous block
-## :type       previousBlock:  { type_description }
+## :type       previousBlock:  block.Block
 ##
 ## :returns:   True if valid new block, False otherwise.
 ## :rtype:     bool
@@ -74,7 +75,7 @@ def isValidNewBlock(newBlock: block.Block, previousBlock: block.Block) -> bool:
 ## Determines whether the specified block is valid block structure.
 ##
 ## :param      block:  The block
-## :type       block:  { type_description }
+## :type       block:  block.Block
 ##
 ## :returns:   True if the specified block is valid block structure, False otherwise.
 ## :rtype:     bool

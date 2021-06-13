@@ -107,9 +107,9 @@ def getBlockchainLength() -> int:
 def getLatestBlock() -> block.Block:
     lastRow = tuple(get_db().execute(
                 'SELECT * FROM bun_dau_blockchain ORDER BY id DESC LIMIT 1'
-            ).fetchone())[0]
+            ).fetchone())
     print(lastRow)
-    return block.Block##(index=lastRow[0], previousHash=lastRow[1], timestamp=lastRow[2], data=lastRow[3], hash=lastRow[4])
+    return block.Block(index=int(lastRow[0]), previousHash=lastRow[1], timestamp=int(lastRow[2]), data=lastRow[3], hash=lastRow[4])
 
 
 #

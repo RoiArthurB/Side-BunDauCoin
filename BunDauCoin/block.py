@@ -13,14 +13,14 @@ class Block:
     ## :type       index:         int
     ## :param      previousHash:  The previous hash
     ## :type       previousHash:  str
-    ## :param      timestamp:     The timestamp
-    ## :type       timestamp:     datetime.datetime
+    ## :param      timestamp:     The timestamp the block has been created at
+    ## :type       timestamp:     int
     ## :param      data:          The data
     ## :type       data:          str
     ## :param      hash:          The hash
     ## :type       hash:          str
     ##
-    def __init__(self, index: int, previousHash: str, timestamp, data: str, hash: str = ""):
+    def __init__(self, index: int, previousHash: str, timestamp: int, data: str, hash: str = ""):
         self.index = index
         self.previousHash = previousHash
         self.timestamp = timestamp

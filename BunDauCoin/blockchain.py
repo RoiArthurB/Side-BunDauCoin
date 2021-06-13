@@ -23,7 +23,7 @@ def genesisBlock() -> block.Block:
     return block.Block(
         index=0, 
         previousHash="0", 
-        timestamp=datetime.datetime.now(), 
+        timestamp=int(datetime.datetime.now().timestamp()), 
         data="Genesis Bun Dau Block"
     )
 
@@ -41,7 +41,7 @@ def generateNextBlock(blockData: str) -> block.Block:
     return block.Block(
         index=previousBlock.index+1,
         previousHash=previousBlock.hash, 
-        timestamp=datetime.datetime.now(), 
+        timestamp=int(datetime.datetime.now().timestamp()), 
         data=blockData
     )
 
